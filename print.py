@@ -1,21 +1,29 @@
 
-def dosomething( numbers ):
+def eliminate( numbers ):
     endLoop = False
-    dig = 0
+    num = 0
+    new_number = []
+    dictionary = dict([])
     for i in range(0,len(numbers)):
         
-        if numbers[i]==numbers[i+1] and i != i+1:
-            print numbers
-            print numbers[i]
-            dig = dig +1
-            if dig ==3:
+        if numbers[i] in dictionary.keys():
+            count = dictionary[numbers[i]]
+            count = count + 1
+            dictionary[numbers[i]] = count
+            if count < 3:
                 print numbers[i]
-                print "Index"
-                print i
-                endLoop=True
-        if endLoop:
-            break
+                new_number.append(numbers[i])
+                dictionary[numbers[i]] = 1
+                
+        else:
+            count = 1
+            dictionary[numbers[i]] = count
+            print numbers[i]
+            new_number.append(numbers[i])
 
+    print dictionary
+    print new_number
+numlist = [1, 2, 2, 3, 5, 2, 4, 5, 5, 2]
+eliminate( numlist )
 
-alist = [4,5,1,2,2,2,3,3,3]
-dosomething( alist )  
+#Output: [1, 2, 2, 3, 5, 4, 5, 2]
