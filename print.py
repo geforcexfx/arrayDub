@@ -13,13 +13,11 @@ def eliminate( numbers,n ):
             dictionary[numbers[i]] = count
             if count != n:
                 new_number.append(numbers[i])
-            
         #if the number is not in the dictionary, add this number to dictionary with the value is 1        
         else:
             count = 1
             dictionary[numbers[i]] = count
             new_number.append(numbers[i])
-
     print dictionary
     print new_number   
 numlist = [1, 2, 2, 3, 5, 2, 4, 5, 5, 2]
